@@ -6,6 +6,8 @@
     <groupId>com.example</groupId>
     <artifactId>jenkins-project</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!-- Change packaging to war -->
+    <packaging>war</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -14,11 +16,27 @@
 
     <dependencies>
         <!-- Add dependencies here if needed -->
+        <!-- Example: Servlet API dependency for a web application -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Add plugins here if needed -->
+            <!-- Add the maven-war-plugin to handle WAR packaging -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <!-- Optional: Specify the name of the WAR file -->
+                    <warName>${project.artifactId}-${project.version}</warName>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
